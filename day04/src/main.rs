@@ -4,8 +4,9 @@ use std::{
 };
 
 fn main() {
-    let input = fs::read_to_string("test-input.txt").unwrap();
+    let input = fs::read_to_string("input.txt").unwrap();
     println!("{}", task_01(&input));
+    println!("{}", task_02(&input));
 }
 
 fn task_01(input: &str) -> i32 {
@@ -85,6 +86,39 @@ fn task_01(input: &str) -> i32 {
                         count += 1
                     }
                 }
+            }
+        }
+    }
+
+    return count;
+}
+
+fn task_02(input: &str) -> i32 {
+    let mut count = 0;
+    let char_map: Vec<Vec<char>> = input.lines().map(|line| line.chars().collect()).collect();
+
+    for x in 1..char_map.len() - 1 {
+        for y in 1..char_map[x].len() - 1 {
+            if char_map[x][y] != 'A' {
+                continue;
+            };
+
+            let surrounding_vec: Vec<char> = vec![
+                char_map[x - 1][y - 1],
+                char_map[x - 1][y + 1],
+                char_map[x + 1][y - 1],
+                char_map[x + 1][y + 1],
+            ];
+
+            let allowed = [
+                vec!['M', 'S', 'M', 'S'],
+                vec!['S', 'M', 'S', 'M'],
+                vec!['S', 'S', 'M', 'M'],
+                vec!['M', 'M', 'S', 'S'],
+            ];
+
+            if allowed.contains(&surrounding_vec) {
+                count += 1;
             }
         }
     }
