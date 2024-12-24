@@ -2,7 +2,6 @@ use std::{
     collections::HashMap,
     fs::File,
     io::{BufRead, BufReader},
-    usize,
 };
 
 fn main() {

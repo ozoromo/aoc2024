@@ -1,8 +1,6 @@
-use core::num;
 use std::{
     collections::{hash_map::Entry, HashMap, HashSet},
-    fs::{self, File},
-    io::{BufRead, BufReader},
+    fs::{self},
 };
 
 fn main() {

@@ -1,7 +1,4 @@
-use std::{
-    fs::{self, File},
-    io::{BufRead, BufReader},
-};
+use std::fs::{self};
 
 fn main() {
     let input = fs::read_to_string("input.txt").unwrap();
